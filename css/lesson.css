@@ -764,6 +764,114 @@
   border-color: var(--cnx-paper);
 }
 
+/* Carousel: controls above a Mist stage. */
+.cnx-lesson .cnx-carousel {
+  display: block;
+}
+
+.cnx-lesson .cnx-carousel__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cnx-space-3);
+  margin-bottom: var(--cnx-space-3);
+}
+
+.cnx-lesson .cnx-carousel__nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "position position" "prev next";
+  gap: var(--cnx-space-2) var(--cnx-space-3);
+  width: 100%;
+}
+
+.cnx-lesson .cnx-carousel__prev {
+  grid-area: prev;
+}
+
+.cnx-lesson .cnx-carousel__next {
+  grid-area: next;
+}
+
+.cnx-lesson .cnx-carousel__position {
+  grid-area: position;
+  margin: 0;
+  font-size: var(--cnx-text-small);
+  font-weight: 700;
+}
+
+@media (min-width: 40em) {
+  .cnx-lesson .cnx-carousel__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: auto;
+  }
+
+  .cnx-lesson .cnx-carousel__position {
+    min-width: 7.5em;
+    text-align: center;
+  }
+}
+
+.cnx-lesson .cnx-carousel .cnx-btn {
+  padding-left: var(--cnx-space-3);
+  padding-right: var(--cnx-space-4);
+}
+
+.cnx-lesson .cnx-carousel .cnx-btn svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cnx-lesson .cnx-carousel__rotate svg {
+  fill: currentColor;
+  stroke-width: 1;
+}
+
+.cnx-lesson .cnx-carousel__slides {
+  padding: 0;
+  list-style: none;
+}
+
+.cnx-lesson .cnx-carousel__slides > li + li {
+  margin-top: var(--cnx-space-4);
+}
+
+.cnx-lesson .cnx-carousel__slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--cnx-space-4);
+  padding: var(--cnx-space-5);
+  border-radius: var(--cnx-radius-large);
+  background: var(--cnx-mist);
+}
+
+.cnx-lesson .cnx-carousel--enhanced .cnx-carousel__slide {
+  min-height: 100%;
+}
+
+.cnx-lesson .cnx-carousel__art {
+  width: 100%;
+  max-width: 22rem;
+}
+
+.cnx-lesson .cnx-carousel__caption h3 {
+  margin-bottom: var(--cnx-space-2);
+}
+
+@media (min-width: 48em) {
+  .cnx-lesson .cnx-carousel__slide {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: center;
+    gap: var(--cnx-space-5);
+  }
+}
+
 /* MOTION: every transition and animation lives in the block below. */
 @media (prefers-reduced-motion: no-preference) {
   .cnx-lesson .cnx-btn,
