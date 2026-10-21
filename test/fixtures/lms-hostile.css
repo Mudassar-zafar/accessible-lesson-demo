@@ -1,0 +1,114 @@
+/*
+  Simulates an LMS theme injected AFTER lesson.css: global resets and
+  opinionated element rules of the kind platform themes ship. Tests load it
+  last and check that the lesson components keep their layout and states.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+  line-height: 1.1;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  margin: 24px;
+  font-size: 13px;
+  color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 40px 0 4px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #900;
+}
+
+p {
+  margin: 0 0 30px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+a {
+  color: #c0f;
+  text-decoration: none;
+  outline: none;
+}
+
+a:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
+button {
+  margin: 6px;
+  padding: 0;
+  border: 3px outset #888;
+  border-radius: 0;
+  font: 11px Arial, sans-serif;
+  color: #000;
+  background: #ddd;
+  text-transform: uppercase;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: square inside;
+}
+
+li {
+  margin: 0 0 20px;
+  float: left;
+  width: 45%;
+}
+
+table {
+  width: 100%;
+  border: 4px double #000;
+  border-collapse: separate;
+  font-size: 10px;
+}
+
+img {
+  width: 100%;
+  max-width: none;
+  border: 2px solid red;
+}
+
+input {
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+fieldset {
+  margin: 20px;
+  padding: 20px;
+  border: 5px groove #999;
+}
+
+legend {
+  font-size: 10px;
+  color: #090;
+}
+
+section,
+div {
+  margin-top: 0;
+}
+
+summary {
+  color: #f00;
+}
