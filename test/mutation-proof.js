@@ -61,7 +61,7 @@ for (const m of mutations) {
   }
   try {
     fs.writeFileSync(file, original.replace(m.find, m.replace));
-    const run = spawnSync('npx', ['playwright', 'test', '--project=chromium', '--reporter=line', m.spec],
+    const run = spawnSync('npx playwright test --project=chromium --reporter=line ' + m.spec,
       { cwd: root, encoding: 'utf8', shell: true });
     const failed = (run.stdout.match(/(\d+) failed/) || [0, 0])[1];
     results.push({ name: m.name, spec: m.spec, outcome: run.status !== 0 ? 'caught' : 'NOT CAUGHT', failedTests: Number(failed) });

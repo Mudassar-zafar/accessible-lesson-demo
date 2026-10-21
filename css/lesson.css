@@ -742,9 +742,10 @@
 }
 
 /* Flip cards: the only cards on the page, shaped like speech bubbles. */
+/* One column, then three: a 2 + 1 wrap would leave an orphan card. */
 .cnx-lesson .cnx-flips {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--cnx-space-5);
   padding: 0;
   list-style: none;
@@ -752,6 +753,12 @@
 
 .cnx-lesson .cnx-flips > li + li {
   margin-top: 0;
+}
+
+@media (min-width: 48em) {
+  .cnx-lesson .cnx-flips {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .cnx-lesson .cnx-flip {
