@@ -480,6 +480,54 @@
   color: var(--cnx-lagoon);
 }
 
+/* Accessibility notes */
+.cnx-lesson .cnx-notes h3 {
+  margin: var(--cnx-space-6) 0 var(--cnx-space-3);
+}
+
+.cnx-lesson .cnx-table-wrap {
+  margin-bottom: var(--cnx-space-4);
+}
+
+.cnx-lesson .cnx-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--cnx-text-small);
+}
+
+.cnx-lesson .cnx-table caption {
+  display: table-caption;
+  margin-bottom: var(--cnx-space-2);
+  font-weight: 700;
+  text-align: left;
+}
+
+.cnx-lesson .cnx-table th,
+.cnx-lesson .cnx-table td {
+  padding: var(--cnx-space-3);
+  border-bottom: 2px solid var(--cnx-line);
+  vertical-align: top;
+  text-align: left;
+}
+
+.cnx-lesson .cnx-table th {
+  font-weight: 700;
+}
+
+.cnx-lesson .cnx-table thead th {
+  border-bottom-color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-table tbody th {
+  font-weight: 400;
+}
+
+.cnx-lesson .cnx-table td {
+  font-weight: 700;
+  white-space: normal;
+}
+
 /* Previous and next */
 .cnx-lesson .cnx-pager {
   display: grid;
