@@ -631,6 +631,64 @@
   padding-right: 0;
 }
 
+/* Tabs: underline tabs, panel marked with a left rule. */
+.cnx-lesson .cnx-quote {
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.cnx-lesson .cnx-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--cnx-space-2);
+  border-bottom: 2px solid var(--cnx-line);
+}
+
+.cnx-lesson .cnx-tabs__tab {
+  min-width: var(--cnx-target);
+  min-height: var(--cnx-target);
+  margin-bottom: -2px;
+  padding: var(--cnx-space-2) var(--cnx-space-4);
+  border: 0;
+  border-bottom: 4px solid transparent;
+  border-radius: var(--cnx-radius) var(--cnx-radius) 0 0;
+  font-weight: 700;
+  color: var(--cnx-slate);
+  background: transparent;
+}
+
+.cnx-lesson .cnx-tabs__tab:hover {
+  color: var(--cnx-ink);
+  background: var(--cnx-mist);
+}
+
+.cnx-lesson .cnx-tabs__tab[aria-selected="true"] {
+  border-bottom-color: var(--cnx-lagoon);
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-tabs__tab:focus-visible {
+  outline-offset: -3px;
+}
+
+.cnx-lesson .cnx-tabs__panel {
+  padding: var(--cnx-space-5) 0 var(--cnx-space-2) var(--cnx-space-5);
+  border-left: 4px solid var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-tabs[data-cnx-ready] .cnx-tabs__panel {
+  margin-top: var(--cnx-space-5);
+  padding-top: var(--cnx-space-1);
+}
+
+.cnx-lesson .cnx-tabs:not([data-cnx-ready]) .cnx-tabs__panel + .cnx-tabs__panel {
+  margin-top: var(--cnx-space-5);
+}
+
+.cnx-lesson .cnx-tabs__title {
+  margin-bottom: var(--cnx-space-2);
+}
+
 /* MOTION: every transition and animation lives in the block below. */
 @media (prefers-reduced-motion: no-preference) {
   .cnx-lesson .cnx-btn,
@@ -642,8 +700,9 @@
     transition: transform 0.15s ease;
   }
 
-  .cnx-lesson .cnx-accordion__trigger {
-    transition: background-color 0.15s ease;
+  .cnx-lesson .cnx-accordion__trigger,
+  .cnx-lesson .cnx-tabs__tab {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
 
   .cnx-lesson .cnx-accordion__icon,
@@ -660,6 +719,14 @@
 
   .cnx-lesson .cnx-progress__bar {
     border: 1px solid CanvasText;
+  }
+
+  .cnx-lesson .cnx-tabs__tab {
+    border-bottom-color: Canvas;
+  }
+
+  .cnx-lesson .cnx-tabs__tab[aria-selected="true"] {
+    border-bottom-color: Highlight;
   }
 
   .cnx-lesson .cnx-progress__fill {
