@@ -1,0 +1,582 @@
+/*
+  Lesson component styles.
+  Every selector is scoped under .cnx-lesson so the file can sit inside an LMS
+  page next to the platform's own stylesheet. Class and scoped selectors beat
+  the plain element selectors that LMS themes usually ship, whatever the load
+  order. The only !important is on [hidden], see the note at that rule.
+*/
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/atkinson-hyperlegible-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2");
+}
+
+/* Tokens */
+.cnx-lesson {
+  --cnx-ink: #17324d;
+  --cnx-paper: #fff;
+  --cnx-mist: #eef3f6;
+  --cnx-mist-ink: #e3edf2;
+  --cnx-lagoon: #0b6e77;
+  --cnx-lagoon-dark: #08555c;
+  --cnx-lagoon-tint: #e2f0f1;
+  --cnx-marigold: #f2b33d;
+  --cnx-slate: #4a5b6c;
+  --cnx-line: #d4dee6;
+  --cnx-control: #6b7a88;
+  --cnx-fern: #1d6b3b;
+  --cnx-fern-tint: #e8f3ec;
+  --cnx-brick: #a3282e;
+  --cnx-brick-tint: #fbecec;
+  --cnx-focus: var(--cnx-ink);
+
+  --cnx-font: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --cnx-text: 1.125rem;
+  --cnx-text-small: 1rem;
+  --cnx-h3: 1.375rem;
+  --cnx-h2: 1.75rem;
+  --cnx-h1: clamp(2.125rem, 1.6rem + 2.4vw, 2.875rem);
+  --cnx-leading: 1.65;
+
+  --cnx-space-1: 0.25rem;
+  --cnx-space-2: 0.5rem;
+  --cnx-space-3: 0.75rem;
+  --cnx-space-4: 1rem;
+  --cnx-space-5: 1.5rem;
+  --cnx-space-6: 2rem;
+  --cnx-space-7: 3rem;
+  --cnx-space-8: 4rem;
+  --cnx-space-9: 6rem;
+
+  --cnx-gutter: clamp(1rem, 4vw, 2.5rem);
+  --cnx-measure: 42rem;
+  --cnx-wide: 60rem;
+  --cnx-radius: 0.5rem;
+  --cnx-radius-large: 1.25rem;
+  --cnx-target: 2.75rem;
+}
+
+/* Scoped reset: neutralises LMS rules on *, h1 to h6, p, ul, li and friends. */
+.cnx-lesson,
+.cnx-lesson *,
+.cnx-lesson *::before,
+.cnx-lesson *::after {
+  box-sizing: border-box;
+}
+
+.cnx-lesson * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-transform: none;
+  text-decoration: none;
+  background: none;
+  box-shadow: none;
+  float: none;
+  max-width: none;
+}
+
+.cnx-lesson {
+  display: block;
+  max-width: calc(var(--cnx-wide) + 2 * var(--cnx-gutter));
+  margin: 0 auto;
+  padding: 0 var(--cnx-gutter) var(--cnx-space-7);
+  font-family: var(--cnx-font);
+  font-size: var(--cnx-text);
+  font-weight: 400;
+  line-height: var(--cnx-leading);
+  color: var(--cnx-ink);
+  background: var(--cnx-paper);
+  text-align: left;
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/*
+  The only !important in this file. Components hide content with the native
+  hidden attribute. Some LMS themes ship rules such as "div { display: block }"
+  or "[hidden] { display: revert }" that would show hidden panels and slides.
+*/
+.cnx-lesson [hidden] {
+  display: none !important;
+}
+
+/* Text */
+.cnx-lesson h1,
+.cnx-lesson h2,
+.cnx-lesson h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson h1 {
+  font-size: var(--cnx-h1);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.cnx-lesson h2 {
+  font-size: var(--cnx-h2);
+  margin-bottom: var(--cnx-space-4);
+}
+
+.cnx-lesson h3 {
+  font-size: var(--cnx-h3);
+  line-height: 1.3;
+}
+
+.cnx-lesson p,
+.cnx-lesson ul,
+.cnx-lesson ol,
+.cnx-lesson dl,
+.cnx-lesson table {
+  margin-bottom: var(--cnx-space-4);
+}
+
+.cnx-lesson p:last-child,
+.cnx-lesson ul:last-child,
+.cnx-lesson ol:last-child {
+  margin-bottom: 0;
+}
+
+.cnx-lesson strong {
+  font-weight: 700;
+}
+
+.cnx-lesson em {
+  font-style: italic;
+}
+
+.cnx-lesson ul,
+.cnx-lesson ol {
+  padding-left: 1.5em;
+}
+
+.cnx-lesson ul {
+  list-style: disc outside;
+}
+
+.cnx-lesson ol {
+  list-style: decimal outside;
+}
+
+.cnx-lesson li {
+  display: list-item;
+}
+
+.cnx-lesson li + li {
+  margin-top: var(--cnx-space-2);
+}
+
+.cnx-lesson img,
+.cnx-lesson svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.cnx-lesson a {
+  color: var(--cnx-lagoon);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.cnx-lesson a:hover {
+  color: var(--cnx-ink);
+  text-decoration-thickness: 0.16em;
+}
+
+.cnx-lesson button {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+}
+
+/* Focus: 3px ring, 2px gap, at least 3:1 against paper and mist. */
+.cnx-lesson :focus-visible {
+  outline: 3px solid var(--cnx-focus);
+  outline-offset: 2px;
+}
+
+/* Programmatic focus targets (main, via the skip link) are not controls. */
+.cnx-lesson [tabindex="-1"]:focus {
+  outline: none;
+}
+
+.cnx-lesson .cnx-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Buttons shared by components */
+.cnx-lesson .cnx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cnx-space-2);
+  min-height: var(--cnx-target);
+  padding: var(--cnx-space-2) var(--cnx-space-5);
+  border: 2px solid var(--cnx-lagoon);
+  border-radius: var(--cnx-radius);
+  font-size: var(--cnx-text-small);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--cnx-paper);
+  background: var(--cnx-lagoon);
+}
+
+.cnx-lesson .cnx-btn:hover {
+  border-color: var(--cnx-lagoon-dark);
+  background: var(--cnx-lagoon-dark);
+}
+
+.cnx-lesson .cnx-btn--quiet {
+  border-color: var(--cnx-control);
+  color: var(--cnx-ink);
+  background: var(--cnx-paper);
+}
+
+.cnx-lesson .cnx-btn--quiet:hover {
+  border-color: var(--cnx-ink);
+  color: var(--cnx-ink);
+  background: var(--cnx-mist);
+}
+
+.cnx-lesson .cnx-btn svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Skip link */
+.cnx-lesson .cnx-skip {
+  position: absolute;
+  top: var(--cnx-space-2);
+  left: var(--cnx-space-2);
+  z-index: 10;
+  padding: var(--cnx-space-2) var(--cnx-space-4);
+  border-radius: var(--cnx-radius);
+  font-weight: 700;
+  color: var(--cnx-paper);
+  background: var(--cnx-ink);
+  transform: translateY(-200%);
+}
+
+.cnx-lesson .cnx-skip:focus {
+  transform: none;
+}
+
+/* Masthead and breadcrumb */
+.cnx-lesson .cnx-masthead {
+  display: block;
+  padding: var(--cnx-space-4) 0;
+}
+
+.cnx-lesson .cnx-masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--cnx-space-2) var(--cnx-space-5);
+}
+
+.cnx-lesson .cnx-masthead__course {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cnx-lesson .cnx-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--cnx-text-small);
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-breadcrumb li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.cnx-lesson .cnx-breadcrumb li + li::before {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin: 0 0.75em 0 0.6em;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.cnx-lesson .cnx-breadcrumb a {
+  display: inline-block;
+  padding: var(--cnx-space-1) 0;
+}
+
+.cnx-lesson .cnx-breadcrumb [aria-current="page"] {
+  font-weight: 700;
+  color: var(--cnx-ink);
+}
+
+/* Lesson header: the one bold moment on the page. */
+.cnx-lesson .cnx-hero {
+  --cnx-focus: var(--cnx-marigold);
+  margin-bottom: var(--cnx-space-8);
+  border-radius: var(--cnx-radius-large);
+  color: var(--cnx-paper);
+  background: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--cnx-space-5);
+  padding: var(--cnx-space-6) var(--cnx-gutter);
+}
+
+.cnx-lesson .cnx-hero h1 {
+  max-width: 18em;
+  margin: var(--cnx-space-2) 0 var(--cnx-space-4);
+  color: var(--cnx-paper);
+}
+
+.cnx-lesson .cnx-hero__module {
+  margin: 0;
+  color: var(--cnx-mist-ink);
+}
+
+.cnx-lesson .cnx-hero__intro {
+  max-width: 36em;
+  color: var(--cnx-mist-ink);
+}
+
+.cnx-lesson .cnx-hero__art {
+  width: min(100%, 15rem);
+  justify-self: start;
+}
+
+.cnx-lesson .cnx-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cnx-space-2) var(--cnx-space-4);
+  margin-top: var(--cnx-space-5);
+}
+
+.cnx-lesson .cnx-progress__text {
+  margin: 0;
+  font-size: var(--cnx-text-small);
+  font-weight: 700;
+  color: var(--cnx-paper);
+}
+
+.cnx-lesson .cnx-progress__bar {
+  flex: 1 1 8rem;
+  max-width: 14rem;
+  height: 0.5rem;
+  border-radius: 1rem;
+  background: #3a536b;
+  overflow: hidden;
+}
+
+.cnx-lesson .cnx-progress__fill {
+  width: 33.333%;
+  height: 100%;
+  border-radius: 1rem;
+  background: var(--cnx-marigold);
+}
+
+@media (min-width: 48em) {
+  .cnx-lesson .cnx-hero__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: var(--cnx-space-7) var(--cnx-space-7);
+  }
+
+  .cnx-lesson .cnx-hero__art {
+    width: clamp(12rem, 24vw, 20rem);
+  }
+}
+
+/* Sections */
+.cnx-lesson .cnx-section {
+  display: block;
+  max-width: var(--cnx-measure);
+  margin: 0 auto var(--cnx-space-8);
+}
+
+.cnx-lesson .cnx-section--wide {
+  max-width: var(--cnx-wide);
+}
+
+.cnx-lesson .cnx-section--wide > h2,
+.cnx-lesson .cnx-section--wide > p {
+  max-width: var(--cnx-measure);
+}
+
+.cnx-lesson .cnx-section__lead {
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-objectives {
+  padding-left: 1.75em;
+}
+
+.cnx-lesson .cnx-objectives li {
+  padding-left: var(--cnx-space-2);
+}
+
+.cnx-lesson .cnx-objectives li::marker {
+  font-weight: 700;
+  color: var(--cnx-lagoon);
+}
+
+/* Previous and next */
+.cnx-lesson .cnx-pager {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--cnx-space-4);
+  max-width: var(--cnx-measure);
+  margin: 0 auto var(--cnx-space-8);
+  padding-top: var(--cnx-space-5);
+  border-top: 2px solid var(--cnx-line);
+}
+
+.cnx-lesson .cnx-pager__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cnx-space-1);
+  min-height: var(--cnx-target);
+  padding: var(--cnx-space-3) var(--cnx-space-4);
+  border: 2px solid var(--cnx-line);
+  border-radius: var(--cnx-radius);
+  text-decoration: none;
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-pager__link:hover {
+  border-color: var(--cnx-ink);
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-pager__link--next {
+  text-align: right;
+}
+
+.cnx-lesson .cnx-pager__dir {
+  font-size: var(--cnx-text-small);
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-pager__title {
+  font-weight: 700;
+  color: var(--cnx-lagoon);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.cnx-lesson .cnx-pager__link:hover .cnx-pager__title {
+  color: var(--cnx-ink);
+  text-decoration-thickness: 0.16em;
+}
+
+/* Footer */
+.cnx-lesson .cnx-footer {
+  display: block;
+  max-width: var(--cnx-measure);
+  margin: 0 auto;
+  padding-top: var(--cnx-space-5);
+  border-top: 2px solid var(--cnx-line);
+  font-size: var(--cnx-text-small);
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-footer p {
+  margin-bottom: var(--cnx-space-2);
+}
+
+/* Stub pages */
+.cnx-lesson .cnx-stub {
+  max-width: var(--cnx-measure);
+  margin: var(--cnx-space-7) auto;
+}
+
+.cnx-lesson .cnx-stub h1 {
+  margin-bottom: var(--cnx-space-4);
+}
+
+/* COMPONENTS */
+
+/* MOTION: every transition and animation lives in the block below. */
+@media (prefers-reduced-motion: no-preference) {
+  .cnx-lesson .cnx-btn,
+  .cnx-lesson .cnx-pager__link {
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .cnx-lesson .cnx-skip {
+    transition: transform 0.15s ease;
+  }
+}
+
+/* FORCED COLORS: keep meaning when the OS replaces the palette. */
+@media (forced-colors: active) {
+  .cnx-lesson :focus-visible {
+    outline-color: Highlight;
+  }
+
+  .cnx-lesson .cnx-progress__bar {
+    border: 1px solid CanvasText;
+  }
+
+  .cnx-lesson .cnx-progress__fill {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+}
