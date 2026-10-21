@@ -398,7 +398,7 @@
 }
 
 .cnx-lesson .cnx-hero__art {
-  width: min(100%, 15rem);
+  width: min(100%, 10rem);
   justify-self: start;
 }
 
@@ -459,6 +459,8 @@
 .cnx-lesson .cnx-section--wide > h2,
 .cnx-lesson .cnx-section--wide > p {
   max-width: var(--cnx-measure);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cnx-lesson .cnx-section__lead {
@@ -818,8 +820,17 @@
 }
 
 .cnx-lesson .cnx-carousel .cnx-btn {
-  padding-left: var(--cnx-space-3);
-  padding-right: var(--cnx-space-4);
+  gap: var(--cnx-space-1);
+  padding-left: var(--cnx-space-2);
+  padding-right: var(--cnx-space-3);
+}
+
+@media (min-width: 40em) {
+  .cnx-lesson .cnx-carousel .cnx-btn {
+    gap: var(--cnx-space-2);
+    padding-left: var(--cnx-space-3);
+    padding-right: var(--cnx-space-4);
+  }
 }
 
 .cnx-lesson .cnx-carousel .cnx-btn svg {
@@ -1122,6 +1133,11 @@
 
   .cnx-lesson .cnx-progress__bar {
     border: 1px solid CanvasText;
+  }
+
+  .cnx-lesson .cnx-hero,
+  .cnx-lesson .cnx-carousel__slide {
+    border: 2px solid CanvasText;
   }
 
   .cnx-lesson .cnx-tabs__tab {
