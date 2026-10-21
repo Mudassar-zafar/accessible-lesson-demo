@@ -87,6 +87,7 @@ npm test
 Notes from the test machine (Windows 11):
 
 - The WebKit build for Windows stalls when several pages run at once, so the WebKit project runs with one worker.
+- Firefox crashed once with four parallel workers (Windows error 0xC0000409), so the Firefox project runs with two.
 - WebKit leaves links out of the Tab order unless the "Press Tab to highlight each item" setting is on. The Tab order test accepts that platform difference and checks the rest of the order.
 - If Playwright's Firefox fails to start on Windows with a "side-by-side configuration" error, reinstalling the browsers into a fresh folder set by `PLAYWRIGHT_BROWSERS_PATH` fixed it.
 
