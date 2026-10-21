@@ -4,8 +4,9 @@
   per card, no aria-pressed or aria-expanded, and only one face rendered at a
   time so text reflows when it is resized.
   Markup without JavaScript: both faces visible, labelled "Statement" and "Answer".
-  The button name states the action ("Show answer: ..."), changes after each
-  turn, and focus stays on it. The face that just appeared sits directly
+  The button name states the action and the card ("Show answer: ..."), so the
+  three buttons are told apart. It starts with the visible text (WCAG 2.5.3),
+  changes after each turn, and focus stays on it. The face that just appeared sits directly
   before the button in reading order.
 */
 (function () {
@@ -18,7 +19,9 @@
     card.setAttribute('data-side', side);
     parts.front.hidden = showBack;
     parts.back.hidden = !showBack;
-    parts.action.textContent = showBack ? 'Show statement' : 'Show answer';
+    const action = showBack ? 'Show statement' : 'Show answer';
+    parts.button.textContent = action;
+    parts.button.setAttribute('aria-label', action + ': ' + parts.topic);
   }
 
   function enhance(card) {
@@ -33,14 +36,7 @@
     button.type = 'button';
     button.className = 'cnx-btn cnx-btn--quiet cnx-flip__toggle';
 
-    const action = document.createElement('span');
-    const hint = document.createElement('span');
-    hint.className = 'cnx-vh';
-    hint.textContent = ': ' + topic;
-    button.appendChild(action);
-    button.appendChild(hint);
-
-    const parts = { front: front, back: back, action: action };
+    const parts = { front: front, back: back, button: button, topic: topic };
     setSide(card, parts, 'front');
     card.appendChild(button);
 

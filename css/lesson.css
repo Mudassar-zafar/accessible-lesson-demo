@@ -101,6 +101,8 @@
   background: none;
   box-shadow: none;
   float: none;
+  width: auto;
+  height: auto;
   max-width: none;
 }
 
