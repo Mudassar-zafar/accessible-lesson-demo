@@ -1,0 +1,19 @@
+{
+  "name": "accessible-lesson-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Accessible sample eLearning lesson page and a small reusable HTML, CSS and JavaScript component library.",
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "validate": "html-validate index.html page-1.html page-3.html test/fixtures/stress.html"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "html-validate": "^11.17.0"
+  }
+}
