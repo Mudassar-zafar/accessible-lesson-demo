@@ -618,6 +618,7 @@
 
 .cnx-lesson .cnx-accordion__trigger[aria-expanded="true"] .cnx-accordion__icon-down {
   transform: scaleY(0);
+  transform-box: fill-box;
   transform-origin: center;
 }
 
