@@ -175,7 +175,55 @@
           </section>
         </section>
 
-        <!-- component:checkpoints -->
+        <section class="cnx-section">
+          <h2 id="check-title">Check your understanding</h2>
+          <p class="cnx-section__lead">Two quick questions. Nothing is scored or saved.</p>
+
+          <div class="cnx-check-block">
+            <h3>Question 1: choose one answer</h3>
+            <!-- [html-validate-disable-next wcag/h32: checkpoint.js adds the submit button, so there is never a dead button without JavaScript] -->
+            <form class="cnx-check" data-cnx="checkpoint" data-hint="Look for the opening that describes something a camera could have recorded.">
+              <fieldset>
+                <legend>A teammate's slides had several errors in yesterday's client presentation. Which opening is most useful?</legend>
+                <div class="cnx-check__options">
+                  <label class="cnx-check__option"><input type="radio" name="q1" value="sloppy"> <span>"Your slides were sloppy yesterday."</span></label>
+                  <label class="cnx-check__option"><input type="radio" name="q1" value="observed" data-correct> <span>"In yesterday's presentation, three slides showed last quarter's figures, and the client asked about them twice."</span></label>
+                  <label class="cnx-check__option"><input type="radio" name="q1" value="vague"> <span>"Great job overall! Maybe just check things a bit more?"</span></label>
+                  <label class="cnx-check__option"><input type="radio" name="q1" value="everyone"> <span>"Everyone noticed the mistakes."</span></label>
+                </div>
+              </fieldset>
+              <p class="cnx-check__nojs">Answers appear when JavaScript is enabled.</p>
+              <details class="cnx-check__key">
+                <summary>Show the answer key</summary>
+                <p><strong>Answer:</strong> "In yesterday's presentation, three slides showed last quarter's figures, and the client asked about them twice."</p>
+                <p class="cnx-check__explain">It names the moment and describes what happened without judging the person. The other openings are a judgement, too vague to act on, or about everyone else.</p>
+              </details>
+            </form>
+          </div>
+
+          <div class="cnx-check-block">
+            <h3>Question 2: select all that apply</h3>
+            <!-- [html-validate-disable-next wcag/h32: checkpoint.js adds the submit button, so there is never a dead button without JavaScript] -->
+            <form class="cnx-check" data-cnx="checkpoint" data-hint="Ask of each option: does it help the other person understand what happened and what to do next?">
+              <fieldset>
+                <legend>Which of these make feedback more likely to help? Select all that apply.</legend>
+                <div class="cnx-check__options">
+                  <label class="cnx-check__option"><input type="checkbox" name="q2" value="describe" data-correct> <span>Describing what you saw or heard</span></label>
+                  <label class="cnx-check__option"><input type="checkbox" name="q2" value="effect" data-correct> <span>Explaining the effect it had</span></label>
+                  <label class="cnx-check__option"><input type="checkbox" name="q2" value="compare"> <span>Comparing the person with a colleague</span></label>
+                  <label class="cnx-check__option"><input type="checkbox" name="q2" value="next-step" data-correct> <span>Agreeing a next step together</span></label>
+                  <label class="cnx-check__option"><input type="checkbox" name="q2" value="save-up"> <span>Saving it up for the annual review</span></label>
+                </div>
+              </fieldset>
+              <p class="cnx-check__nojs">Answers appear when JavaScript is enabled.</p>
+              <details class="cnx-check__key">
+                <summary>Show the answer key</summary>
+                <p><strong>Answer:</strong> describing what you saw or heard, explaining the effect it had, and agreeing a next step together.</p>
+                <p class="cnx-check__explain">Those three give the person facts, a reason and a way forward. Comparing people turns feedback into a ranking, and by the annual review the details are gone.</p>
+              </details>
+            </form>
+          </div>
+        </section>
 
         <nav class="cnx-pager" aria-label="Lesson pages">
           <a class="cnx-pager__link cnx-pager__link--prev" href="page-1.html">
@@ -204,6 +252,7 @@
     <script src="js/tabs.js"></script>
     <script src="js/flipcard.js"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/checkpoint.js"></script>
     <script src="js/init.js"></script>
   </body>
 </html>

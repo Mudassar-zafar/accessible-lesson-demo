@@ -872,6 +872,202 @@
   }
 }
 
+/* Checkpoints: flat Mist panel with a Lagoon rule. */
+.cnx-lesson .cnx-check-block {
+  padding: var(--cnx-space-5);
+  border-left: 6px solid var(--cnx-lagoon);
+  border-radius: 0 var(--cnx-radius-large) var(--cnx-radius-large) 0;
+  background: var(--cnx-mist);
+}
+
+.cnx-lesson .cnx-check-block + .cnx-check-block {
+  margin-top: var(--cnx-space-6);
+}
+
+.cnx-lesson .cnx-check-block h3 {
+  margin-bottom: var(--cnx-space-3);
+  font-size: var(--cnx-text);
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-check {
+  display: block;
+}
+
+.cnx-lesson .cnx-check fieldset {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cnx-lesson .cnx-check legend {
+  display: block;
+  float: none;
+  width: 100%;
+  margin-bottom: var(--cnx-space-4);
+  padding: 0;
+  font-size: var(--cnx-h3);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-check__options {
+  display: grid;
+  gap: var(--cnx-space-2);
+}
+
+.cnx-lesson .cnx-check__option {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--cnx-space-2) var(--cnx-space-3);
+  min-height: var(--cnx-target);
+  padding: var(--cnx-space-3) var(--cnx-space-4);
+  border: 2px solid var(--cnx-control);
+  border-radius: var(--cnx-radius);
+  font-weight: 400;
+  color: var(--cnx-ink);
+  background: var(--cnx-paper);
+  cursor: pointer;
+}
+
+.cnx-lesson .cnx-check__option:hover {
+  border-color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-check__option > span:first-of-type {
+  flex: 1 1 12rem;
+}
+
+.cnx-lesson .cnx-check__option input {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem 0 0;
+  accent-color: var(--cnx-lagoon);
+  cursor: pointer;
+  -webkit-appearance: auto;
+  appearance: auto;
+}
+
+.cnx-lesson .cnx-check__option[data-mark="correct"] {
+  border-color: var(--cnx-fern);
+  background: var(--cnx-fern-tint);
+}
+
+.cnx-lesson .cnx-check__option[data-mark="incorrect"] {
+  border-color: var(--cnx-brick);
+  background: var(--cnx-brick-tint);
+}
+
+.cnx-lesson .cnx-check__mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cnx-space-1);
+  flex: 1 0 100%;
+  padding-left: calc(1.5rem + var(--cnx-space-3));
+  font-size: var(--cnx-text-small);
+  font-weight: 700;
+}
+
+.cnx-lesson [data-mark="correct"] .cnx-check__mark {
+  color: var(--cnx-fern);
+}
+
+.cnx-lesson [data-mark="incorrect"] .cnx-check__mark {
+  color: var(--cnx-brick);
+}
+
+.cnx-lesson .cnx-check__icon {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cnx-lesson .cnx-check__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cnx-space-3);
+  margin-top: var(--cnx-space-5);
+}
+
+.cnx-lesson .cnx-check__status:not(:empty) {
+  margin-top: var(--cnx-space-4);
+  padding: var(--cnx-space-3) var(--cnx-space-4);
+  border: 2px solid currentColor;
+  border-radius: var(--cnx-radius);
+  background: var(--cnx-paper);
+}
+
+.cnx-lesson .cnx-check__status p {
+  margin: 0;
+  color: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-check__status strong {
+  margin-right: var(--cnx-space-1);
+}
+
+.cnx-lesson .cnx-check__status .cnx-check__icon {
+  display: inline-block;
+  margin-right: var(--cnx-space-2);
+  vertical-align: -0.25em;
+}
+
+.cnx-lesson .cnx-check__status[data-state="correct"] {
+  color: var(--cnx-fern);
+  background: var(--cnx-fern-tint);
+}
+
+.cnx-lesson .cnx-check__status[data-state="incorrect"],
+.cnx-lesson .cnx-check__status[data-state="error"] {
+  color: var(--cnx-brick);
+  background: var(--cnx-brick-tint);
+}
+
+.cnx-lesson .cnx-check__status[data-state] strong {
+  color: inherit;
+}
+
+.cnx-lesson .cnx-check__status[data-state="error"] .cnx-check__icon {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  stroke-width: 3.5;
+}
+
+.cnx-lesson .cnx-check__nojs {
+  margin: var(--cnx-space-4) 0 var(--cnx-space-2);
+  font-weight: 700;
+}
+
+.cnx-lesson .cnx-check__key {
+  display: block;
+  margin-top: var(--cnx-space-2);
+}
+
+.cnx-lesson .cnx-check__key summary {
+  display: list-item;
+  min-height: var(--cnx-target);
+  padding: var(--cnx-space-2) 0;
+  font-weight: 700;
+  color: var(--cnx-lagoon);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.cnx-lesson .cnx-check__key[open] summary {
+  margin-bottom: var(--cnx-space-2);
+}
+
 /* MOTION: every transition and animation lives in the block below. */
 @media (prefers-reduced-motion: no-preference) {
   .cnx-lesson .cnx-btn,
