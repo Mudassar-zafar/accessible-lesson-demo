@@ -1,6 +1,7 @@
 {
   "extends": ["html-validate:recommended"],
   "rules": {
-    "no-trailing-whitespace": "error"
+    "no-trailing-whitespace": "error",
+    "form-dup-name": ["error", { "shared": ["radio", "checkbox"] }]
   }
 }
