@@ -8,10 +8,10 @@ Target: WCAG 2.1 level AA. Approach: native HTML first, ARIA only where HTML has
 |---|---|
 | Automated: axe-core (WCAG 2.1 A and AA tags) in every state, html-validate, Playwright in Chromium, Firefox and WebKit | Automated: passed |
 | Keyboard: scripted Tab order, every component operated by keyboard alone, no trap, focus never dropped | Keyboard (scripted): passed |
-| Screen reader on Windows | NVDA + Firefox: pending manual test |
+| Screen reader on Windows | NVDA + Firefox: passed (manual test, 2026-10-21) |
 | Screen reader on macOS | VoiceOver + Safari: pending manual test |
 
-No screen reader has been run against this page yet. The steps for the NVDA check are in [MANUAL-SCREEN-READER-CHECKLIST.md](MANUAL-SCREEN-READER-CHECKLIST.md).
+NVDA with Firefox was checked by hand on 2026-10-21 using [MANUAL-SCREEN-READER-CHECKLIST.md](MANUAL-SCREEN-READER-CHECKLIST.md). VoiceOver with Safari has not been run yet.
 
 ## Page
 
@@ -142,9 +142,13 @@ All specs run in Chromium, Firefox and WebKit unless noted.
 
 `test/mutation-proof.js` breaks 18 behaviours one at a time (for example: stop updating aria-expanded, break the roving tabindex, stop the carousel's focus stop, stop writing to the status region, remove the focus outline) and confirms a test fails each time.
 
+## Known observations
+
+- NVDA + Firefox announced "expanded" twice after one Enter on an accordion button. `accordion.js` sets `aria-expanded` once per press (one click listener, no focus move or re-render, covered by the "toggle exactly once" test), so this looks like screen reader and browser event reporting, not a page defect; the code is unchanged and it will be rechecked with another NVDA version and in Chrome.
+
 ## Known limits
 
-- No screen reader testing yet (see the table above).
+- VoiceOver with Safari not tested yet (see the table above).
 - Forced colours are checked by emulation in Chromium only, not in Windows High Contrast itself.
 - 400% zoom is checked as an equivalent 320 CSS pixel viewport, not by browser zoom.
 - A theme that changes the root font size scales this page too, because sizes are in rem.
