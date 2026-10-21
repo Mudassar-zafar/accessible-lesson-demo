@@ -689,6 +689,81 @@
   margin-bottom: var(--cnx-space-2);
 }
 
+/* Flip cards: the only cards on the page, shaped like speech bubbles. */
+.cnx-lesson .cnx-flips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--cnx-space-5);
+  padding: 0;
+  list-style: none;
+}
+
+.cnx-lesson .cnx-flips > li + li {
+  margin-top: 0;
+}
+
+.cnx-lesson .cnx-flip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cnx-space-5);
+  padding: var(--cnx-space-5);
+  border: 2px solid var(--cnx-ink);
+  border-radius: var(--cnx-radius-large) var(--cnx-radius-large) var(--cnx-radius-large) var(--cnx-space-1);
+  color: var(--cnx-ink);
+  background: var(--cnx-paper);
+  perspective: 60rem;
+}
+
+.cnx-lesson .cnx-flip[data-side="back"] {
+  --cnx-focus: var(--cnx-marigold);
+  color: var(--cnx-paper);
+  background: var(--cnx-ink);
+}
+
+.cnx-lesson .cnx-flip__face {
+  flex: 1 0 auto;
+}
+
+.cnx-lesson .cnx-flips:not([data-cnx-ready]) .cnx-flip__face--back {
+  padding-top: var(--cnx-space-4);
+  border-top: 2px solid var(--cnx-line);
+}
+
+.cnx-lesson .cnx-flip__label {
+  margin-bottom: var(--cnx-space-2);
+  font-size: var(--cnx-text-small);
+  color: var(--cnx-slate);
+}
+
+.cnx-lesson .cnx-flip[data-side="back"] .cnx-flip__label {
+  color: var(--cnx-mist-ink);
+}
+
+.cnx-lesson .cnx-flip__text {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cnx-lesson .cnx-flip__verdict {
+  margin-bottom: var(--cnx-space-2);
+  font-size: var(--cnx-h2);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.cnx-lesson .cnx-flip[data-side="back"] .cnx-flip__verdict {
+  color: var(--cnx-marigold);
+}
+
+.cnx-lesson .cnx-flip__toggle {
+  align-self: flex-start;
+}
+
+.cnx-lesson .cnx-flip[data-side="back"] .cnx-flip__toggle {
+  border-color: var(--cnx-paper);
+}
+
 /* MOTION: every transition and animation lives in the block below. */
 @media (prefers-reduced-motion: no-preference) {
   .cnx-lesson .cnx-btn,
@@ -708,6 +783,28 @@
   .cnx-lesson .cnx-accordion__icon,
   .cnx-lesson .cnx-accordion__icon-down {
     transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* A face starts this animation each time it goes from hidden to shown,
+     but only after the learner has turned the card once. */
+  .cnx-lesson .cnx-flip[data-turned] .cnx-flip__face {
+    animation: cnx-flip-in 0.35s ease-out;
+  }
+
+  .cnx-lesson .cnx-flip {
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  @keyframes cnx-flip-in {
+    from {
+      opacity: 0;
+      transform: rotateY(-80deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
